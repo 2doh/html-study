@@ -1,226 +1,117 @@
-# HTML
+# 2. 스타일
 
-## 1.2 웹 문서 구조를 만드는 시멘틱 태그
+## 2.1 스타일 시트
 
-- 웹사이트 구조는 헤더, 본문, 푸터, 사이드 바 등으로 나누어짐
-- 시멘틱 태그 Can I use 사이트 참고
-- main 태그 : 웹 문서에서 핵심이 되는 내용, 웹 문서마다 다르게 보여주는 내용으로 구성, 웹 문서에 한번만 사용 할 수 있음
-- article 태그 : 블로그의 포스트나 뉴스 사이트의 기사처럼 독립된 웹 콘텐츠 항목, 여러개 사용 가능
-- section 태그 : 웹 문서의 콘텐츠 영역을 나타냄, article은 독립된 콘텐츠, section은 몇 개의 콘텐츠 묶는 용도
-- aside 태그 : 사이드바 만들 때 필요한 경우에 사용
-- footer 태그 : 웹 문서 맨 아래쪽에 있는 푸터 영역을 만든다. 웹 사이트의 정보, 저작권 정보, 연락처 등을 넣음
-- div 태그 : 영역을 나눔
+- 브라우저 기본 스타일
+  - 웹 브라우저에서 기본으로 사용하는 스타일(크롬, 사파리 등 브라우저의 기본 스타일을 초기화시켜야함)
+- 인라인 스타일
+  - style 속성을 사용해서 필요한 요소에 스타일 직접 지정
+- 내부 스타일 시트
+  - 문서 앞부분에 스타일을 모아서 함께 정의하고 관리
+- 외부 스타일 시트
+  - 스타일을 따로 파일로 저장한 후 연결
 
-```html
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시멘틱 태그</title>
-  </head>
-  <body>
-    <!-- 헤더 영역 -->
-    <header>
-      <!-- 로고 영역 -->
-      <div>
-        <a href="#">
-          <h1>제주도</h1>
-        </a>
-        <hr />
-        <!-- 네비게이션 영역 -->
-        <nav>
-          <li>
-            <a href="#">단체 여행</a>
-          </li>
-          <li>
-            <a href="#">혼자 여행</a>
-          </li>
-          <li>
-            <a href="#">문의</a>
-          </li>
-          <li>
-            <a href="#">갤러리</a>
-          </li>
-        </nav>
-        <hr />
-      </div>
-    </header>
-    <!-- 메인 영역 -->
-    <main>
-      <section>
-        <h2>몸과 마음 치유되는 섬</h2>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum ab sed
-        adipisci vitae beatae officia nesciunt asperiores vel odio quisquam
-        eligendi quos ipsum dolore est illum deserunt, laboriosam dignissimos
-        suscipit.
-        <h2>다양한 액티비티가 기다리는 섬</h2>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum ab sed
-        adipisci vitae beatae officia nesciunt asperiores vel odio quisquam
-        eligendi quos ipsum dolore est illum deserunt, laboriosam dignissimos
-        suscipit.
-      </section>
-    </main>
-    <!-- 푸터 영역 -->
-    <footer>
-      <div>
-        <ul>
-          <li><a href="#">회사 소개</a></li>
-          <li><a href="#">개인정보처리방침</a></li>
-          <li><a href="#">이용약관</a></li>
-          <li><a href="#">사이트맵</a></li>
-        </ul>
-      </div>
-    </footer>
-  </body>
-</html>
-```
+## 2.2 css 기본 선택자(selcetor)
 
-## 1.3 웹 문서에 다양한 내용 입력하기
+1. 전체 선택자(`*`)
 
-### 1.3.1 텍스트 입력하기
+- 문서 모든 요소에 스타일을 적용
+- `*{margin:0 auto;}`
 
-- 제목을 나타내는 html 태그
-- 텍스트 단락을 만드는 p태그, 줄바꿈 br태그
-- 인용할 때 쓰는 blockquote 태그
-- 텍스트를 굵게 표시 strong, b태그
-- 기울인 텍스트를 입력해주는 em, i
+2. 타입 선택자(p태그)
 
-### 1.3.2 목록 만들기
+- 특정 태그를 사용한 모든 요소에서 스타일 적용
+  p{font-style:italic;}
 
-- 순서 있는 목록 ol, li
-- 순서가 없는 목록 ul, li
-- 설명 목록을 만드는 dl, dt, dd 태그 : dl : description, dt : 제목, dd : 값(설명)
+3. 클래스 선택
 
-### 1.3.3 표 만들기
+- 특정 부분만 선택해서 문서 안에 여러번 적용
+- .bg {background-color : #ddd}
 
-### 1.3.4 이미지 삽입
+4. 그룹 선택자
 
-```html
-<img src="images/tangerines.jpg" alt="레드향" />
-<img src="images/salad.jpg" />
-<img src="images/salad.jpg" width="50%" />
-<img src="images/salad.jpg" width="150" />
-```
+- 여러 요소에 같은 스타일 적용
+- h1, h2 {text-aling : center;}
 
-### 1.3.5 오디오와 비디오 삽입하기
+5. id 선택자
 
-- 멀티미디어 파일을 삽입할 때 쓰는 object, embed 태그
-- audio, vedio
-- a 태그 새창으로 이동하기 targer="\_blank"
+## 2.3 스타일 우선 순위
 
-```html
-    <!-- 오디오 비디오 삽입 -->
-    <div>
-      <object data="medias/product.pdf" width="900" height="800"></object>
-    </div>
-    <div>
-      <embed src="medias/spring.mp3" controls />
-      <!-- controls : 가이드바 -->
-    </div>
-    <div>
-      <video src="medias/salad.mp4" controls width="700" />
-    </div>
-    <div>
-        <p><a href="https://www.naver.com" target="_blank 네이버 바로가기"</a><p>
-    </div>
-```
+1. 얼마나 중요한가?
 
-## 1.4 입력 양식 작성하기
+- 사용자 스타일 -> 제작자 스타일 -> 브라우저 기본 스타일
 
-### 1.4.1 폼 삽입하기
+2. 적용 범위 어디까지인가
 
-- 아이디, 비밀번호 입력
-- 로그인, 회원가입
-- 쇼핑몰 주문
-- 커뮤니티 등등 ...
-- form 태그 속성
+- !important -> 인라인 스타일 -> id스타일 -> 클래스 스타일 -> 타입 스타일
 
-  - method : get, post
-  - name : 자바스크립트로 폼을 제어할 때 사용할 폼의 이름을 지정
-  - action : form 태그 안의 내용을 처리해줄 서버 프로그램 지정
-  - target : action 속성에서 지정한 스크립트 파일을 현재 창이 아닌 다른 위치에서 열도록 함
-  - 폼 요소를 그룹으로 묶는 filedset, legend 태그
-  - 폼 요소에 레이블을 붙이는 label 태그
+3. 소스 작성 순서
 
-### 1.4.2 사용자 입력을 위한 input 태그
+- 나중에 작성한 스타일이 먼저 작성한 스타일을 덮어쓴다.
 
-- input 태그의 type 속성
-  - text : 한줄 짜리 텍스트, 텍스트 박스
-  - passward : 비밀번호 필드
-  - search : 검색
-  - url : URL 주소 입력(이미지 업로드 같은 경우)
-  - email : 이메일 주소
-  - tel : 전화번호
-  - checkbox : 체크박스(중복 체크 가능)
-  - radio : 라디오 버튼(하나만 체크)
-  - number : 숫자
-  - range : 숫자를 조절할 수 있는 슬라이드 막대
-  - date : 사용자 지역을 기준으로 날짜(연, 월, 일)
-  - month : 연, 월
-  - week : 연, 주
-  - time : 시, 분, 초, 분할초
-  - datetime : 국제표준시(UTC) 설정된 날짜와 시간(연, 월, 일, 시, 분, 초, 분할초)
-  - datetime-loca : 사용자 지역을 기준으로 datetime
-  - submit : 전송 버튼
-  - reset : 리셋 버튼
-  - image : submit 버튼 대신 사용할 이미지
-  - buttom
-  - file : 파일을 첨부할 수 있는 버튼
-  - hidden : 사용자에게 보이지 않지만 서버로 넘겨주기 위한 값이 있는 필드
+# 3. 텍스트 스타일
 
-````html
-<body>
-  <form>
-    <fieldset>
-      <label> 아이디 : <input type="text" id="user_id" size="10" /></label>
-      <label>
-        비밀번호 : <input type="password" id="user_pw" size="10"
-      /></label>
-      <input type="submit" value="로그인" />
-    </fieldset>
-  </form>
-  <form autocapitalize="off">
-    <legend>배송정보</legend>
-    <ul>
-      <li>
-        <label for="user-name">이름</label>
-        <input type="text" id="user-name" />
-      </li>
-      <li>
-        <label for="addr">배송 주소</label>
-        <input type="text" id="user-name" />
-      </li>
-      <li>
-        <label for="mail">이메일 주소</label>
-        <input type="text" id="user-name" />
-      </li>
-      <li>
-        <label for="phone">연락처</label>
-        <input type="tel" id="user-name" />
-      </li>
-    </ul>
-  </form>
-  <form autocapitalize="off">
-    <fieldset>
-      <legend>상품 선택</legend>
-      <p><b>주문할 상품을 선택해 주세요</b></p>
-      <label><input type="checkbox" value="s3" />선물용 3kg</label>
-      <input type="number" min="0" max="5" />개 (최대 5개)
-      <label><input type="checkbox" value="s5" />선물용 5kg</label>
-      <input type="range" min="0" max="5" />개 (최대 5개)
-      <label><input type="checkbox" value="f3" />가정용 3kg</label>
-      <label><input type="checkbox" value="f5" />가정용 5kg</label>
-    </fieldset>
-  </form>
+## 3.1 글자와 관련된 속성
 
-  <input type="text" placeholder="이름을 입력하세요" readonly />
-  <select>
-    <option value="1">삼겹살</option>
-    <option value="2">항정살</option>
-    <option value="3">목살</option>
-    <option value="4">항정살</option>
-    <option value="5">가브리살</option></select
-  >```
-</body>
-````
+- font-family : 글꼴 종류 지정
+- font-size : 글자 크기 지정
+- font-style : 글자 이탤릭체로 표시할지 지정(노말 or 이탤릭)
+- font-weight : 글자 굵기
+
+## 3.2 텍스트 스타일 속성
+
+- color : 글자색 지정
+- text-decoration : 텍스트에 밑줄, 취소선 표시
+- text-transform : 텍스트 전체 또는 첫 글자를 대문자로 표시할지 여부
+- text-shadow : 텍스트에 그림자 추가
+- letter-spacing : 글자 사이의 간격(자간)
+- word-spacing : 단어 사이의 간격
+- text-align : 텍스트 정렬방법 지정
+- line-height : 줄 간격 조절(행간)
+
+## 3.3 웹에서 색상을 지정하는 방법
+
+- 16진수 Hex: #000000
+- rgb, rgba : rgba(255, 255, 255, 0.7) // 색상,채도
+- hsl, hsla
+- 색상이름 white, black
+
+## 3.4 텍스트를 정렬하는 text-align 속성
+
+- start : 현재 텍스트 줄의 시작 위치에 맞추어 문단을 정렬
+- end : 현재 텍스트 줄의 끝 위치에 맞추어 문단을 정렬
+- left : 왼쪽 맞춤
+- right : 오른쪽 맞춤
+- center : 가운데 맞춤
+- justify : 양쪽 맞춤
+- match-parent : 부모 요소를 따라 문단 정렬
+
+## 3.5 줄 간격을 조절하는 line-height 속성
+
+- 보통 1.5 ~ 1.75배 정도 추천
+
+## 3.6 텍스트의 줄을 표시하거나 없애 주는 text-decoration 속성
+
+- 텍스트에 밑줄을 긋거나 취소선을 표시
+- 하이퍼링크 밑줄 없애기 등에 사용
+- none
+- underline
+- overline
+- line through
+
+## 3.7 텍스트에 그림자 효과 text-shadow 속성
+
+- text shadow : 가로거리 세로거리 번짐정도 색상
+
+## 3.8 텍스트의 대소문자를 변환하는 text-transform 속성
+
+- 영문자
+- capitalize : 첫 번째 글자를 대문자로
+- uppercase : 모든 글자를 대문자
+- lowercase : 모든 글자를 소문자
+- full-width : 가능한 모든 글자를 전각 문자로 변환(여백 채우기)
+
+## 3.9 글자 간격을 조절하는 letter-spacing, word-spacing
+
+- letter-spacing : 자간
+- word-spacing : 단어와 단어 사이 간격을 조절
