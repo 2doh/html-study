@@ -115,3 +115,72 @@
 
 - letter-spacing : 자간
 - word-spacing : 단어와 단어 사이 간격을 조절
+
+## 3.10 목록 스타일
+
+### 3.10.1 불릿 모양과 번호 스타일을 지정하는 list-style-type 속성
+
+- disc : 채운 원 모양
+- circle : 빈 원 모양
+- square : 채운 사각형
+- decimal : 1부터 시작하는 10진수
+- decimal-leading-zero : 앞에 0이 붙는 10진수
+- lower-roman : 로마 숫자 소문자
+- upper-roman : 로마 숫자 대문자
+- lower-alpha 또는 lower-latin : 알파벳 소문자
+- upper-alpha 또는 upper-latin : 알파벳 대문자
+- none : 불릿이나 숫자를 없앤다
+
+```html
+<li style="list-style-type: circle"><a href="#">회사 소개</a></li>
+// li 위의 ul에 기입해줘도 됨
+<ul style="list-style-type: circle"></ul>
+<li><a href="#">회사 소개</a></li>
+```
+
+### 3.10.2 불릿 대신 이미지를 사용하는 list-style-image 속성
+
+```css
+ul {
+  list-style-image: url("image.png");
+}
+```
+
+### 3.10.3 목록을 들여 쓰는 list-style-position 속성
+
+- inside
+- outside
+
+```css
+ <ul style="list-style-position: inside">
+```
+
+### 3.10.4 목록 속성을 한꺼번에 표시하는 list-style
+
+### 3.10.5 표 스타일
+
+# 4. 레이아웃을 구성하는 CSS 박스모델
+
+- 웹 문서에서 내용을 배치할 때는 각 요소를 박스 형태로 구성
+- 박스 모델은 실제 내용이 들어가는 콘텐츠 영역, 테두리, 여백(마진)
+
+## 4.1 CSS와 박스 모델
+
+- 웹 문서의 내용을 박스 형태로 정의하는 방법
+- 박스 모델이 모여서 웹 문서를 이룬다
+- 박스 모델에는 마진,패딩,테두리 등 박스가 **여러겹** 들어 있다
+
+### 4.1.1 블록 레벨 요소와 인라인 레벨 요소
+
+- block 레벨 요소 : 태그를 사용해서 요소를 삽입했을 때, 혼자 **한 줄을** 차지하는 것, 해당 요소의 너비는 100%
+- h1, div, p ...
+
+- inline 레벨 요소 : 한 줄을 차지하지 않고, **콘텐츠 영역만큼만** 영역을 차지
+- 따라서 한 줄에 인라인 레벨 요소를 여러 개 표시할 수 있다
+- span, img, strong ...
+
+### 4.1.2 박스 모델의 기본 구성
+
+- 박스 모델은 콘텐츠 영역
+- 박스와 콘텐츠 영역 사이의 여백 = 패딩
+- 박스와 테두리 그리고 여러 박스 모델 사이의 여백인 마진
